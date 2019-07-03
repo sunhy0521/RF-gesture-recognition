@@ -1,0 +1,22 @@
+function draw_dist_same_activity()
+%Author:Hongyu 
+%Date:1-19-2017 
+%Function:The performance comparison between
+content = csvread('same_ac_dist.csv', 0, 0, [0, 0, 1, 6]);
+Dist_same_activity_Mean = content(1,:);
+figure('Position',[100 100 300 350]);
+hb=bar(Dist_same_activity_Mean);
+
+
+legend('Before Equalization','After Equalization','location', 'best'); 
+set(gca, 'FontSize', 30,'FontWeight', 'bold');
+set(gca,'XTickLabel',{'Faraday Cage','0.5m','2.5m','5m','10m','12.5m'});
+set(gca,'YTick',[0 0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5]);
+xlabel('Scenarios');
+ylabel('BER');
+hold on;
+errorbar([1:6] + hb(1).XOffset, Throughput_B2W_PAM, Throughput_B2W_PAM_Error, 'r', 'LineStyle', 'none', 'LineWidth', 1.5);
+errorbar([1:6] + hb(2).XOffset, Throughput_B2W_FSK, Throughput_B2W_FSK_Error, 'r', 'LineStyle', 'none', 'LineWidth', 1.5);
+hold off;
+end
+
