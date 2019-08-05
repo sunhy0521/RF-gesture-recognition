@@ -1,2 +1,1 @@
-# RF-gesture-recognition
-using rss to sensing gesture
+This project aim to use the coarse-grained RSS to achieve accurate gesture sensing applications 
